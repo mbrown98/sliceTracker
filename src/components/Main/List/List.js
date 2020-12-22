@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ExpenseTrackerContext } from "../../../context/context";
 import {
   List as MUIList,
   ListItem,
@@ -16,6 +17,7 @@ import useStyles from "./styles";
 
 const List = () => {
   const classes = useStyles();
+  const { deleteTransaction } = useContext(ExpenseTrackerContext);
 
   const transactions = [
     {
