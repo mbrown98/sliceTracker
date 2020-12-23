@@ -51,9 +51,7 @@ const Form = () => {
           <InputLabel>Type</InputLabel>
           <Select
             value={formData.type}
-            onChange={(e) =>
-              setFormData({ ...formData, type: formatDate(e.target.value) })
-            }
+            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
           >
             <MenuItem value="Income">Income</MenuItem>
             <MenuItem value="Expense">Expense</MenuItem>
@@ -83,7 +81,9 @@ const Form = () => {
           label="Amount"
           fullWidth
           value={formData.amount}
-          onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, amount: Number(e.target.value) })
+          }
         />
       </Grid>
       <Grid item xs={6}>
