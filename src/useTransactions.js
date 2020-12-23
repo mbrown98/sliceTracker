@@ -14,6 +14,7 @@ const useTransactions = (title) => {
   //filter out transactions based on title (Income or Expense)
   const transactionsPerType = transactions.filter((t) => t.type === title);
   //total of transactions by title
+  console.log("tpt,", transactionsPerType);
   const total = transactionsPerType.reduce(
     (acc, current) => (acc += current.amount),
     0
