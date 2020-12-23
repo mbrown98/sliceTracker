@@ -7,8 +7,7 @@ const InfoCard = () => {
     <div style={{ textAlign: "center", padding: "0 10%" }}>
       Try saying: <br />
       Add {isIncome ? "Income " : "Expense "}
-      for ${Math.round(Math.random() * 200)} in category{" "}
-      {isIncome ? " Business " : " House "}
+      for $100 in category {isIncome ? " Business " : " House "}
       for {isIncome ? "next Monday" : " next Tuesday"}...
     </div>
   );
