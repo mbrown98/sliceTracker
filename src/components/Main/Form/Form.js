@@ -13,12 +13,18 @@ import { v4 as uuidv4 } from "uuid";
 import { ExpenseTrackerContext } from "../../../context/context";
 import useStyles from "./styles";
 import { FormatIndentDecrease } from "@material-ui/icons";
+import {
+  incomeCategories,
+  expenseCategories,
+} from "../../../constants/categories";
+
+import formatDate from "../../../utils/formatDate";
 
 const initialState = {
   amount: "",
   category: "",
   type: "Income",
-  date: new Date(),
+  date: formatDate(new Date()),
 };
 const Form = () => {
   const classes = useStyles();
@@ -30,6 +36,9 @@ const Form = () => {
     addTransaction(transaction);
     setFormData(initialState);
   };
+
+  const selectedCategories =
+    formData.type === "Income" ? incomeCategories : expenseCategories;
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -42,7 +51,9 @@ const Form = () => {
           <InputLabel>Type</InputLabel>
           <Select
             value={formData.type}
-            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, type: formatDate(e.target.value) })
+            }
           >
             <MenuItem value="Income">Income</MenuItem>
             <MenuItem value="Expense">Expense</MenuItem>
@@ -58,8 +69,11 @@ const Form = () => {
               setFormData({ ...formData, category: e.target.value })
             }
           >
-            <MenuItem value="business">Business</MenuItem>
-            <MenuItem value="salary">Salary</MenuItem>
+            {selectedCategories.map((c) => (
+              <MenuItem key={c.type} value={c.type}>
+                {c.type}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
       </Grid>
