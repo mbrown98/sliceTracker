@@ -12,7 +12,9 @@ React (Hooks, ES6), Context API, Speechly, Material UI, Local Storage
 ## Demo
 
 
+### speechly
 
+The Speechly API required me to configure a model that would be deployed. Currently the model is quite simple, and can handle straightforward user speech, but the ability to expand this feature is incredible. The model is deployed, and then using the "@speechly/react-client" package, the slice. application is wrapped with the speechly container, allowing it's functionality to be used throughout the application. 
 ![speechly](speechlyTrain.png)
 
 
