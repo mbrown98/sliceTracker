@@ -13,6 +13,6 @@ React (Hooks, ES6), Context API, Speechly, Material UI, Local Storage
 
 
 
-[1](speechlyTrain.png)
+![speechly](speechlyTrain.png)
 
 
