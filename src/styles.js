@@ -1,30 +1,43 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
 
-export default makeStyles((theme) => ({
-  desktop: {
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
+export default makeStyles((theme) => {
+  theme = createMuiTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 960,
+        lg: 1280,
+        xl: 1920,
+      },
     },
-  },
-  mobile: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
+  });
+  return {
+    desktop: {
+      [theme.breakpoints.up("sm")]: {
+        display: "none",
+      },
     },
-  },
-  main: {
-    [theme.breakpoints.up("sm")]: {
-      paddingBottom: "5%",
+    mobile: {
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
     },
-  },
-  last: {
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: theme.spacing(3),
-      paddingBottom: "200px",
+    main: {
+      [theme.breakpoints.up("sm")]: {
+        paddingBottom: "5%",
+      },
     },
-  },
-  grid: {
-    "& > *": {
-      margin: theme.spacing(2),
+    last: {
+      [theme.breakpoints.down("sm")]: {
+        marginBottom: theme.spacing(3),
+        paddingBottom: "200px",
+      },
     },
-  },
-}));
+    grid: {
+      "& > *": {
+        margin: theme.spacing(1),
+      },
+    },
+  };
+});
